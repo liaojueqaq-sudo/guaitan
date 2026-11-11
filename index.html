@@ -263,16 +263,16 @@ body.glitching #app{animation:glitchHue .1s infinite}
 .footer{border-top:1px solid var(--line);margin-top:40px;padding:16px 0 40px;font-size:11px;color:#6a5a50;font-family:var(--mono);line-height:2;text-align:center}
 
 /* ========================================= */
-/* 💡 手机版特别适配 (核心改动)               */
+/* 💡 手机版特别适配               */
 /* ========================================= */
 @media (max-width:720px){
   /* 手机端顶栏精简 */
   .tbi { height: 48px; gap: 10px; }
   .logo { font-size: 18px; letter-spacing: 0.1em; }
-  .lsub { display: none; } /* 隐藏 bbs 域名 */
+  .lsub { display: none; }
   .tnav { gap: 8px; font-size: 12px; }
-  .tnav .me { display: none; } /* 隐藏当前用户名 */
-  .navbar { display: none; } /* 隐藏面包屑导航，省空间 */
+  .tnav .me { display: none; }
+  .navbar { display: none; }
 
   /* 帖子列表 */
   .post{grid-template-columns:1fr}
@@ -289,13 +289,10 @@ body.glitching #app{animation:glitchHue .1s infinite}
   .pm-page:not(.show-list) .pm-conv{display:flex}
   .pm-back-mobile{display:inline-block}
   
-  /* 帖子列表列隐藏 */
   .col-a,.col-n,.col-l{display:none}
 
-  /* 📱 手机端线索板彻底重构为流式列表模式 */
-  .board-wrap {
-    overflow: visible; /* 允许撑开 */
-  }
+  /* 📱 手机端线索板重构为列表模式 */
+  .board-wrap { overflow: visible; }
   .board {
     height: auto !important;
     min-height: 200px;
@@ -303,14 +300,13 @@ body.glitching #app{animation:glitchHue .1s infinite}
     flex-direction: column;
     padding: 12px;
     border-width: 4px;
-    background-image: none;
     background: #1a1512;
     overflow: visible !important;
   }
-  #boardSvg { display: none !important; } /* 手机端不画线 */
+  #boardSvg { display: none !important; }
   
   .clue-card {
-    position: relative !important; /* 取消绝对定位 */
+    position: relative !important;
     left: auto !important;
     top: auto !important;
     width: 100%;
@@ -321,20 +317,19 @@ body.glitching #app{animation:glitchHue .1s infinite}
     font-size: 13px;
     padding: 12px;
     cursor: pointer;
-    transition: none; /* 去除拖拽延迟感 */
+    transition: none;
   }
-  .clue-card .pin { display: none !important; } /* 手机端不需要红钉 */
+  .clue-card .pin { display: none !important; }
   .clue-card .cn { font-size: 14px; margin-top: 4px; }
   .clue-card .cd { font-size: 11px; margin-top: 4px; }
   
-  /* 选中状态 */
   .clue-card.selected {
     outline: 2px solid var(--red2);
     background: #fff5e6;
     transform: scale(0.98);
   }
   .clue-card.linked {
-    opacity: 0.6;
+    opacity: 0.5;
     border-left: 4px solid var(--red);
   }
 }
@@ -752,7 +747,8 @@ function route(){
   if(h === '#/'){ renderIndex(); return; }
   if(h.startsWith('#/t/')){ const id = parseInt(h.slice(4),10); renderThread(id); return; }
   if(h.startsWith('#/search/')){ const kw = decodeURIComponent(h.slice(9)); renderSearch(kw); return; }
-  if(h === '#/pm'){ renderPM(STATE.pmOpen, false); return; }
+  // 修复：每次从菜单进来，强制重置 pmOpen，显示列表
+  if(h === '#/pm'){ renderPM(null, false); return; }
   if(h === '#/archive'){ renderBoard(); return; }
   if(h === '#/hidden'){ renderHidden(); return; }
   if(h === '#/about'){ renderAbout(); return; }
@@ -838,7 +834,7 @@ function renderIndex(){
   const guideHTML = STATE.guideClosed ? '' : `
     <div class="guide-bar" id="guide-bar">
       <b>指引</b>
-      <span>① 读帖 → ② 私信自动出现 → ③ 线索板连线 → ④ 输密码看档案。手机端线索板直接点卡片连线。</span>
+      <span>① 读帖 → ② 私信自动出现 → ③ 线索板连线 → ④ 输密码看档案。手机端直接点卡片连线。</span>
       <span class="close" onclick="closeGuide()">×</span>
     </div>`;
 
@@ -963,7 +959,6 @@ function render404(){
 /* ============================================================
    帖子
 ============================================================ */
-// 将获取线索的逻辑统一封装在这里，确保从任何入口进来都能触发
 function checkCluesAndUnlocks(id) {
   const t = THREADS.find(x=>x.id===id);
   if(!t) return;
@@ -996,7 +991,6 @@ function renderThread(id){
   const t = THREADS.find(x=>x.id===id);
   if(!t){ render404(); return; }
 
-  // 只要渲染帖子，就检查并触发线索
   checkCluesAndUnlocks(id);
 
   const op = { name:t.author, av:t.av, time:t.time, body:t.body, sig:t.sig||'', op:true, rank:'楼主' };
@@ -1046,7 +1040,7 @@ function renderThread(id){
 }
 
 /* ============================================================
-   发帖 + 违禁词 + 乱码（9 次死亡）
+   发帖 + 违禁词 + 乱码
 ============================================================ */
 function submitReply(threadId){
   const ta = $('#reply-text');
@@ -1150,25 +1144,6 @@ function triggerGlitch(){
   }, 3200);
 }
 
-function triggerLinkErrorsGlitch(){
-  const ov = $('#glitchOverlay'), txt = $('#glitchTxt');
-  let s = '';
-  for(let i=0;i<1200;i++) s += randGlitch(1);
-  txt.textContent = s;
-  ov.classList.add('on');
-  document.body.classList.add('glitching');
-  toast('<b>系统</b>：已连续 50 次错误关联。');
-  setTimeout(()=>{
-    ov.classList.remove('on');
-    document.body.classList.remove('glitching');
-    setTimeout(()=>{
-      pushPM('suspect', '你连了 50 次。', true);
-      setTimeout(()=>pushPM('suspect', '什么都连不上。', true), 700);
-      setTimeout(()=>pushPM('suspect', '要不要我告诉你？', true), 1400);
-    }, 900);
-  }, 3200);
-}
-
 /* ============================================================
    私信
 ============================================================ */
@@ -1179,7 +1154,10 @@ function renderPM(contactId, markRead){
       STATE.pmRead[contactId] = true;
       saveState();
     }
+  }else{
+    STATE.pmOpen = null; // 关键修复：重置
   }
+
   const visibleContacts = CONTACTS.filter(isContactVisible);
   const list = visibleContacts.map(c=>{
     const unread = !STATE.pmRead[c.id];
@@ -1262,8 +1240,8 @@ function openPM(id){
 }
 
 function pmShowList(){
-  const page = $('#pm-page');
-  if(page){ page.classList.remove('show-conv'); page.classList.add('show-list'); }
+  STATE.pmOpen = null; // 重置
+  renderPM(null, false);
 }
 
 function sendPM(){
@@ -1351,14 +1329,18 @@ function pushPM(contactId, text, notify){
   STATE.pmRead[contactId] = onPage;
   saveState();
   if(notify && !onPage) toast(`<b>${c.name}</b> 发来一条私信`);
-  if(location.hash === '#/pm') renderPM(STATE.pmOpen, false);
+  
+  // 如果正在私信列表页，不强制跳转，只刷新列表红点
+  if(location.hash === '#/pm' && !STATE.pmOpen) {
+    renderPM(null, false);
+  }
 }
 
 /* ============================================================
    线索板
 ============================================================ */
 let dragState = null;
-let pickA = null; // 手机/点击连线用
+let pickA = null; 
 
 function renderBoard(){
   const clueIds = Array.from(STATE.clues);
@@ -1419,16 +1401,10 @@ function renderBoard(){
   updateFloatBtns();
 }
 
-// 点击卡片连线
+// 修复：移除 isLinked 限制
 function handleCardClick(cid, event){
   if(event && event.target.classList.contains('pin')) return;
   
-  const isLinked = Object.keys(STATE.links || {}).some(k => k.includes(cid));
-  if(isLinked) {
-    toast('这张线索已经连过了。');
-    return;
-  }
-
   const card = document.querySelector(`.clue-card[data-id="${cid}"]`);
   if(!pickA){
     pickA = cid;
@@ -1587,12 +1563,14 @@ function tryLink(a, b){
     STATE.links[k] = true;
     saveState();
     addNote(pair.k, pair.t, false);
+    
+    // 电脑端画线，手机端不画
     drawAllLinks();
+    
+    // 两张卡都标记为已连接（手机端会变暗）
     document.querySelector(`.clue-card[data-id="${a}"]`).classList.add('linked');
     document.querySelector(`.clue-card[data-id="${b}"]`).classList.add('linked');
     
-    if(window.innerWidth <= 720){ renderBoard(); }
-
     if(Object.keys(STATE.links).length === PAIRS.length){
       setTimeout(()=>{
         addNote('系统','全部线索已连上。请在下方输入安全码。', false);
