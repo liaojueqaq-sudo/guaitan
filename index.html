@@ -20,6 +20,7 @@ a{color:#c05040;text-decoration:none;cursor:pointer}
 a:hover{color:var(--red2)}
 .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
 
+/* 顶栏 */
 .topbar{background:linear-gradient(#1a0d0b,#2a0f0d);border-bottom:2px solid #4a1512;position:sticky;top:0;z-index:100}
 .tbi{display:flex;align-items:center;gap:14px;height:56px}
 .logo{font-size:21px;letter-spacing:.3em;color:#d8503f;font-weight:600;text-indent:.3em}
@@ -33,6 +34,7 @@ a:hover{color:var(--red2)}
 .nbi b{color:var(--ink);font-weight:600}
 .main{padding:22px 16px 80px}
 
+/* 登录 */
 .login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#140a0a 0%,#050303 100%)}
 .login-box{width:340px;text-align:center;padding:30px}
 .login-box h1{font-size:26px;letter-spacing:.4em;color:#d8503f;font-weight:600;margin:0 0 8px;text-indent:.4em}
@@ -43,6 +45,7 @@ a:hover{color:var(--red2)}
 .login-box button:hover{background:var(--red);color:#fff;border-color:var(--red2)}
 .login-box .tip{font-size:11.5px;color:#5c4a44;margin-top:22px;font-family:var(--mono);line-height:1.9}
 
+/* 公告 */
 .notice{border:1px solid #4c2a20;background:#1a100e;padding:10px 14px;font-size:13px;color:#b39a80;margin-bottom:18px;display:flex;gap:10px;align-items:baseline}
 .notice b{color:var(--red2);font-weight:600;flex:none;letter-spacing:.1em}
 .guide-bar{border:1px solid #4a3a1a;background:#1a1508;padding:10px 14px;font-size:12px;color:#a89a70;margin-bottom:14px;display:flex;gap:10px;align-items:baseline;font-family:var(--mono);line-height:1.9}
@@ -58,6 +61,7 @@ a:hover{color:var(--red2)}
 .rules h4{margin:0 0 6px;font-size:12.5px;color:var(--ink);letter-spacing:.14em;font-weight:600}
 .rules span{color:var(--ink3);margin-right:6px;font-family:var(--mono);font-size:11px}
 
+/* 列表 */
 .sec-title{display:flex;align-items:baseline;gap:12px;margin:22px 0 12px;font-size:18px;font-weight:600;letter-spacing:.06em}
 .sec-title small{font-size:11.5px;color:var(--ink3);font-weight:400;font-family:var(--mono)}
 .tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);font-size:14px}
@@ -79,6 +83,7 @@ a:hover{color:var(--red2)}
 .online{margin-top:20px;border:1px solid var(--line);background:var(--card);padding:11px 14px;font-size:12px;color:var(--ink3);font-family:var(--mono);line-height:1.9}
 .online b{font-weight:400;color:var(--ink2);font-family:var(--serif)}
 
+/* 帖子 */
 .crumb{font-size:12px;color:var(--ink3);margin-bottom:12px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .backbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}
 .backlink{font-size:12px;color:var(--ink2);border:1px solid var(--line);background:var(--card);padding:5px 12px;letter-spacing:.04em}
@@ -105,9 +110,24 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 .pb p:last-child{margin-bottom:0}
 .pb .dim{color:var(--ink3);font-size:12.5px}
 .sig{margin-top:16px;padding-top:9px;border-top:1px dashed #241612;font-size:12px;color:#7a6f62;font-style:italic}
-.hid{color:var(--bg);cursor:help;transition:color .5s,text-shadow .5s}
-.hid:hover{color:var(--red3);text-shadow:0 0 8px var(--red)}
 
+/* 隐藏文字修改 */
+.hid {
+  color: transparent; 
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px dotted rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.4s;
+  user-select: none;
+}
+.hid.revealed {
+  color: var(--red3);
+  background: transparent;
+  border-bottom-color: var(--red3);
+  text-shadow: 0 0 8px var(--red);
+}
+
+/* 回复框 */
 .reply-box{margin-top:18px;background:var(--card);padding:14px;border:1px solid var(--line)}
 .reply-box .hd{color:var(--ink3);font-size:11.5px;margin-bottom:8px;font-family:var(--mono)}
 .reply-box textarea{width:100%;height:64px;background:#080606;border:1px solid #2a1a18;color:var(--ink);padding:9px;resize:none;font-family:var(--serif);font-size:14px;outline:none}
@@ -116,6 +136,7 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 .reply-box button:hover{background:var(--red2)}
 .reply-box .warn{color:var(--red3);font-size:12px;margin-top:8px;font-family:var(--mono)}
 
+/* 私信页 */
 .pm-page{display:grid;grid-template-columns:220px 1fr;border:1px solid var(--line);background:var(--card);min-height:520px}
 .pm-list{border-right:1px solid var(--line);background:#0f0908}
 .pm-list-hd{padding:10px 12px;font-size:11px;color:var(--ink3);letter-spacing:.14em;font-family:var(--mono);border-bottom:1px solid var(--line)}
@@ -141,6 +162,7 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 .pm-send button{background:var(--red);color:#fff;border:none;padding:0 16px;cursor:pointer;font-family:var(--serif)}
 .pm-empty{padding:40px;text-align:center;color:var(--ink3);font-size:12px;line-height:2}
 
+/* 线索板 (PC端) */
 .board-page{background:var(--bg2);margin:0 -16px;padding:20px 16px 70px;min-height:80vh}
 .bp-head{max-width:1200px;margin:0 auto 12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .bp-head .bk{font-family:var(--mono);font-size:11px;color:#8a7d68;border:1px solid #4a4034;padding:4px 12px}
@@ -157,16 +179,19 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 #boardSvg path.ok{stroke:#c94433;filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
 #boardSvg path.bad{stroke:#6d6154;opacity:.5;stroke-dasharray:4 4}
 #boardSvg path.temp{stroke:#d9cbb0;opacity:.6;stroke-dasharray:6 5}
-.clue-card{position:absolute;z-index:3;cursor:grab;background:#efe8d6;color:#3b342a;border-radius:1px;box-shadow:3px 4px 14px rgba(0,0,0,.55);padding:9px 11px;font-size:11px;line-height:1.6;min-width:120px;max-width:180px;transition:box-shadow .2s}
+
+.clue-card{position:absolute;z-index:3;cursor:grab;background:#efe8d6;color:#3b342a;border-radius:1px;box-shadow:3px 4px 14px rgba(0,0,0,.55);padding:9px 11px;font-size:11px;line-height:1.6;min-width:120px;max-width:180px;transition:box-shadow .2s, outline .2s}
 .clue-card:active{cursor:grabbing}
 .clue-card.dragging{z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.8);transform:rotate(1deg)}
 .clue-card.linked{outline:1px solid rgba(200,70,55,.7)}
+.clue-card.selected{outline:3px solid var(--red2); box-shadow: 0 0 15px rgba(229,67,47,0.5);}
 .clue-card .ct{font-family:var(--mono);font-size:8.5px;color:#8a2119;letter-spacing:.05em;border-bottom:1px solid #cfc2a8;padding-bottom:2px;margin-bottom:3px}
 .clue-card .cn{font-size:12px;font-weight:700;margin-bottom:3px;line-height:1.4}
 .clue-card .cd{font-family:var(--mono);font-size:8px;color:#8b816c;line-height:1.7}
 .clue-card .pin{position:absolute;left:-7px;top:-7px;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#ee6a56,#8e2117 70%);box-shadow:0 2px 5px rgba(0,0,0,.6);cursor:crosshair;z-index:5}
 .clue-card .pin::after{content:"";position:absolute;inset:-12px;border-radius:50%}
 .board-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#5a4a3a;font-size:13px;font-family:var(--mono);text-align:center;pointer-events:none;padding:20px;line-height:2}
+
 .notes{max-width:1200px;margin:22px auto 0}
 .notes h3{font-size:11.5px;color:#7d7160;letter-spacing:.2em;font-family:var(--mono);font-weight:400;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .notes h3::after{content:"";flex:1;height:1px;background:#2a231c}
@@ -191,6 +216,7 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 .pwd-box button{background:#2a1210;color:var(--ink);border:1px solid #4a1a16;padding:9px 18px;cursor:pointer;margin-left:8px;font-family:var(--serif)}
 .pwd-box button:hover{background:var(--red);color:#fff}
 
+/* 隐藏档案 */
 .hidden-page{background:#050303;min-height:100vh;padding:60px 20px;color:#8a7a6a}
 .hidden-inner{max-width:640px;margin:0 auto;font-family:var(--mono);font-size:13px;line-height:2}
 .hidden-inner h2{color:#c0392b;font-size:15px;letter-spacing:.3em;font-family:var(--serif);text-align:center;margin:0 0 30px}
@@ -198,6 +224,7 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 .hidden-inner .key{color:#d8503f}
 .hidden-inner .back{margin-top:40px;display:inline-block}
 
+/* 结局 */
 .ending{position:fixed;inset:0;background:#050303;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px}
 .ending-inner{max-width:560px;text-align:center}
 .ending h1{font-family:var(--serif);font-size:22px;letter-spacing:.4em;color:#e5432f;text-indent:.4em;margin:0 0 30px}
@@ -207,16 +234,19 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 .ending button:hover{background:#b3352a;color:#fff}
 .ending.good h1{color:#d8503f}
 
+/* 404 */
 .err404{text-align:center;padding:80px 20px}
 .err404 h1{font-size:64px;color:var(--red);font-family:var(--mono);font-weight:400;margin:0;letter-spacing:.1em}
 .err404 p{color:var(--ink3);font-size:13px;margin:10px 0}
 .err404 .hid{font-size:13px;margin-top:20px;display:inline-block}
 
+/* 悬浮按钮 */
 #float-btns{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:200}
 #float-btns button{width:40px;height:40px;border-radius:50%;background:#2a1210;border:1px solid #4a1a16;color:#d8c8b8;font-size:17px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s}
 #float-btns button.show{opacity:1;pointer-events:auto}
 #float-btns button:hover{background:var(--red);color:#fff}
 
+/* 乱码 */
 .glitch-overlay{position:fixed;inset:0;z-index:9997;pointer-events:none;background:#050303;opacity:0;transition:opacity .3s}
 .glitch-overlay.on{opacity:1;animation:glitchShake .15s infinite}
 .glitch-overlay .txt{position:absolute;inset:0;padding:40px;font-family:var(--mono);font-size:12px;color:#4a2018;line-height:1.6;word-break:break-all;overflow:hidden;white-space:pre-wrap;opacity:.7}
@@ -224,6 +254,7 @@ h1.th-title{font-size:20px;margin:0 0 4px;letter-spacing:.03em;font-weight:600;l
 body.glitching #app{animation:glitchHue .1s infinite}
 @keyframes glitchHue{0%{filter:hue-rotate(0)}50%{filter:hue-rotate(120deg) contrast(1.8)}100%{filter:hue-rotate(-40deg)}}
 
+/* Toast */
 #toast-layer{position:fixed;right:18px;bottom:120px;z-index:9996;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
 .toast{background:#1a0d0b;border:1px solid var(--red2);color:#d8c8b8;padding:10px 14px;font-size:12.5px;box-shadow:0 4px 20px rgba(0,0,0,.7);max-width:280px;animation:toastIn .4s;font-family:var(--serif);line-height:1.7}
 .toast b{color:var(--red3)}
@@ -231,22 +262,81 @@ body.glitching #app{animation:glitchHue .1s infinite}
 
 .footer{border-top:1px solid var(--line);margin-top:40px;padding:16px 0 40px;font-size:11px;color:#6a5a50;font-family:var(--mono);line-height:2;text-align:center}
 
+/* ========================================= */
+/* 💡 手机版特别适配 (核心改动)               */
+/* ========================================= */
 @media (max-width:720px){
+  /* 手机端顶栏精简 */
+  .tbi { height: 48px; gap: 10px; }
+  .logo { font-size: 18px; letter-spacing: 0.1em; }
+  .lsub { display: none; } /* 隐藏 bbs 域名 */
+  .tnav { gap: 8px; font-size: 12px; }
+  .tnav .me { display: none; } /* 隐藏当前用户名 */
+  .navbar { display: none; } /* 隐藏面包屑导航，省空间 */
+
+  /* 帖子列表 */
   .post{grid-template-columns:1fr}
   .pu{display:flex;align-items:center;gap:10px;text-align:left;border-right:none;border-bottom:1px solid var(--line);padding:9px 12px}
   .av{width:38px;height:38px;margin:0}
   .ps,.rk{display:none}
   .pc{padding:12px 14px 16px}
+  
+  /* 私信 */
   .pm-page{grid-template-columns:1fr}
   .pm-page .pm-list{display:none;border-right:none}
   .pm-page .pm-conv{display:none}
   .pm-page.show-list .pm-list{display:block}
   .pm-page:not(.show-list) .pm-conv{display:flex}
   .pm-back-mobile{display:inline-block}
-  .board{height:520px;border-width:6px}
-  .clue-card{min-width:100px;max-width:140px;font-size:10px}
+  
+  /* 帖子列表列隐藏 */
   .col-a,.col-n,.col-l{display:none}
-  .tbi{height:48px}.logo{font-size:18px}.tnav{font-size:12px;gap:10px}
+
+  /* 📱 手机端线索板彻底重构为流式列表模式 */
+  .board-wrap {
+    overflow: visible; /* 允许撑开 */
+  }
+  .board {
+    height: auto !important;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border-width: 4px;
+    background-image: none;
+    background: #1a1512;
+    overflow: visible !important;
+  }
+  #boardSvg { display: none !important; } /* 手机端不画线 */
+  
+  .clue-card {
+    position: relative !important; /* 取消绝对定位 */
+    left: auto !important;
+    top: auto !important;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 12px 0;
+    box-sizing: border-box;
+    min-width: 0;
+    font-size: 13px;
+    padding: 12px;
+    cursor: pointer;
+    transition: none; /* 去除拖拽延迟感 */
+  }
+  .clue-card .pin { display: none !important; } /* 手机端不需要红钉 */
+  .clue-card .cn { font-size: 14px; margin-top: 4px; }
+  .clue-card .cd { font-size: 11px; margin-top: 4px; }
+  
+  /* 选中状态 */
+  .clue-card.selected {
+    outline: 2px solid var(--red2);
+    background: #fff5e6;
+    transform: scale(0.98);
+  }
+  .clue-card.linked {
+    opacity: 0.6;
+    border-left: 4px solid var(--red);
+  }
 }
 </style>
 </head>
@@ -282,7 +372,7 @@ const STATE = {
 };
 function saveState(){
   try{
-    localStorage.setItem('guaitan_save_v4', JSON.stringify({
+    localStorage.setItem('guaitan_save_v5', JSON.stringify({
       user:STATE.user,
       readThreads:[...STATE.readThreads],
       clues:[...STATE.clues],
@@ -302,7 +392,7 @@ function saveState(){
 }
 function loadState(){
   try{
-    const d = localStorage.getItem('guaitan_save_v4');
+    const d = localStorage.getItem('guaitan_save_v5');
     if(!d) return;
     const o = JSON.parse(d);
     STATE.user = o.user || null;
@@ -321,7 +411,7 @@ function loadState(){
     STATE.linkErrorsWarned = !!o.linkErrorsWarned;
   }catch(e){}
 }
-function clearSave(){ try{ localStorage.removeItem('guaitan_save_v4'); }catch(e){} }
+function clearSave(){ try{ localStorage.removeItem('guaitan_save_v5'); }catch(e){} }
 
 /* ============================================================
    工具
@@ -356,7 +446,7 @@ const THREADS = [
       <p>我去问物业老陈，他说楼上是设备层，没人住。我说那水声是什么，他说水管。我说水管会挪凳子吗，他没说话。</p>
       <p>我上去过一次。楼梯到 11 楼就断了，再往上是扇铁门，锁着。门缝底下有水渗出来，一小条。<b class="hl">我蹲下去摸了一下。是干净的，还有点温。</b></p>
       <p>对了，我把我听见的日期记在本子上了：<b>六月三十、七月三十一、八月三十一</b>。都是月末。</p>
-      <p>有没有人知道这是怎么回事。<span class="hid">这不是水声，是有人在上面洗东西。</span></p>`,
+      <p>有没有人知道这是怎么回事。<span class="hid" onclick="this.classList.toggle('revealed')">这不是水声，是有人在上面洗东西。</span></p>`,
     floors:[
       {name:'老K',av:'g2',time:'2011-07-01 00:12',body:'<p>水箱就在上面。十一层老楼都是二次供水。水声正常。</p>'},
       {name:'南风',av:'g1',time:'2011-07-01 00:20',op:true,body:'<p>那挪凳子的声音呢。</p>'},
@@ -384,7 +474,7 @@ const THREADS = [
       <p>我拿起来看了。上面印着蓝色的字：<b>江州市自来水公司</b>。<b class="hl">袋子不是空的。</b>里面有一张纸。复写的，蓝字，边上有一排小孔。</p>
       <p>上面写着：<b class="hl">建设路 37 号　1101</b>。日期：<b>9 月 30 日</b>。后面是签名的字头，只有一个字，看不全，像“李”。</p>
       <p>我把这张纸夹在行车记录本里了。我没敢交出去。</p>
-      <p>建材市场那一站，站牌后面是什么，有人知道吗。<span class="hid">她不是从站牌上下来的。她是被从井里放上来的。</span></p>`,
+      <p>建材市场那一站，站牌后面是什么，有人知道吗。<span class="hid" onclick="this.classList.toggle('revealed')">她不是从站牌上下来的。她是被从井里放上来的。</span></p>`,
     floors:[
       {name:'老K',av:'g2',time:'2012-02-29 08:15',body:'<p>站牌后面是围墙吧，里面空的。</p>'},
       {name:'江北小张',av:'g5',time:'2012-02-29 09:40',body:'<p>周师傅你是不是困了。跑夜班的都这样。</p>'},
@@ -408,7 +498,7 @@ const THREADS = [
       <p>一个男的，站在门口，低着头。穿蓝色的衣服，那种工厂的工装，肩上有一条黄色的反光条。他手里拿着一个本子，在写。写了大概两分钟，合上本子，转身下楼了。<b class="hl">他下楼的时候，我看见他鞋是湿的。</b></p>
       <p>他一直没抬头。所以我也只拍到这么一张。</p>
       <p>还有一件事。他下楼以后，我听见楼下有两声很轻的响，像是有人把什么东西放在地上。</p>
-      <p>第二天早上，一楼的楼道里多了一个塑料桶。<span class="hid">桶里装的不是水。是她的工作服。</span></p>`,
+      <p>第二天早上，一楼的楼道里多了一个塑料桶。<span class="hid" onclick="this.classList.toggle('revealed')">桶里装的不是水。是她的工作服。</span></p>`,
     floors:[
       {name:'晚归的猫',av:'g5',time:'2012-05-31 02:20',body:'<p>我也住幸福里，5 号楼。阿姨你说的那个桶，是不是白色的，上面有字？</p>'},
       {name:'三楼西户',av:'g4',time:'2012-05-31 02:31',op:true,body:'<p>是白的。上面有字，我看不清，好像是“37”。</p>'},
@@ -431,7 +521,7 @@ const THREADS = [
       <p>桶上写的是：<b class="hl">37 号</b>。</p>
       <p>我跑回家，锁门，报了物业。</p>
       <p>物业第二天去看，说里面是干的，机器没通电。我今天又去看了一次。地是干的。封条重新贴上了。桶没了。但是我拍了照。</p>
-      <p>我就想知道有没有人是 B 区的，那天晚上有没有也听见。<span class="hid">那件工装，第二天就不见了。他把它穿走了。</span></p>`,
+      <p>我就想知道有没有人是 B 区的，那天晚上有没有也听见。<span class="hid" onclick="this.classList.toggle('revealed')">那件工装，第二天就不见了。他把它穿走了。</span></p>`,
     floors:[
       {name:'老K',av:'g2',time:'2012-10-31 08:33',body:'<p>楼主你是不是加完班喝酒了。</p>'},
       {name:'晚归的猫',av:'g5',time:'2012-10-31 09:02',op:true,body:'<p>我没喝酒。我拍照了。</p>'},
@@ -451,7 +541,7 @@ const THREADS = [
       <p>水务来人说没问题。我住 11 楼，顶楼。我今天问物业，顶楼上面是什么。物业说设备层。</p>
       <p>我搬来的时候，阳台柜子里有半瓶洗发水，还有个塑料盆。房东说都是上一户的，让我扔了。我没扔。</p>
       <p><b class="hl">上一个住在这儿的人，是什么时候走的。</b></p>
-      <p>表号 B-1147。<span class="hid">上一个住在这儿的人，是苏晚。她没走，她还在顶楼。</span></p>`,
+      <p>表号 B-1147。<span class="hid" onclick="this.classList.toggle('revealed')">上一个住在这儿的人，是苏晚。她没走，她还在顶楼。</span></p>`,
     floors:[
       {name:'游客',av:'g5',time:'2013-01-09 00:31',body:'<p>楼主你先别自己吓自己，老楼管道串水很常见。</p>'},
       {name:'游客',av:'g5',time:'2013-01-09 01:07',body:'<p>这种事别发网上。删了吧。</p>'},
@@ -570,14 +660,10 @@ const PAIRS = [
   {a:'c9', b:'c5', t:'水箱渗水，导致 1101 的水表每天凌晨异常走字。', k:'渗水'},
 ];
 
-/* ============================================================
-   私信联系人（unlockBy: 读过哪些帖之一后出现）
-============================================================ */
 const CONTACTS = [
   {
     id:'ytzq', name:'雨停之前', av:'g1', color:'#e5432f',
     intro:'版主 · 苏晴',
-    // 版主始终显示
     msgs:[
       {from:'ytzq', text:'你也看到那个帖子了？', time:'11-14 21:02'},
       {from:'ytzq', text:'我叫苏晴。我在找我姐姐。', time:'11-14 21:03'},
@@ -632,7 +718,6 @@ const CONTACTS = [
   },
 ];
 
-/* 联系人是否可见 */
 function isContactVisible(c){
   if(c.hidden && !STATE.suspectUnlocked) return false;
   if(c.unlockBy && c.unlockBy.length > 0){
@@ -686,7 +771,7 @@ function renderLogin(){
         <div class="sub">guaitan.bbs.net · 江北区 · 需登录</div>
         <input id="login-name" placeholder="输入你的论坛 ID" maxlength="12" onkeydown="if(event.key==='Enter')doLogin()">
         <button onclick="doLogin()">进 入 论 坛</button>
-        <div class="tip">本论坛实行实名制。<br>你的 ID 将记录在案。<br><span class="hid">最好不要用真名。</span></div>
+        <div class="tip">本论坛实行实名制。<br>你的 ID 将记录在案。<br><span class="hid" onclick="this.classList.toggle('revealed')">最好不要用真名。</span></div>
       </div>
     </div>`;
   setTimeout(()=>{ const i=$('#login-name'); if(i) i.focus(); }, 50);
@@ -753,18 +838,18 @@ function renderIndex(){
   const guideHTML = STATE.guideClosed ? '' : `
     <div class="guide-bar" id="guide-bar">
       <b>指引</b>
-      <span>① 读帖 → ② 私信自动出现 → ③ 线索板连线 → ④ 输密码看档案。新手：先点开「顶楼的水声」。</span>
+      <span>① 读帖 → ② 私信自动出现 → ③ 线索板连线 → ④ 输密码看档案。手机端线索板直接点卡片连线。</span>
       <span class="close" onclick="closeGuide()">×</span>
     </div>`;
 
   const lateHTML = isLateNight() ? `
     <div class="notice" style="border-color:#5a2018;background:#1a0a08">
-      <b>深夜</b><span>凌晨了，你还在。今夜在线人数比昨天多 1。<span class="hid">她在看。</span></span>
+      <b>深夜</b><span>凌晨了，你还在。今夜在线人数比昨天多 1。<span class="hid" onclick="this.classList.toggle('revealed')">她在看。</span></span>
     </div>` : '';
 
   $('#app').innerHTML = shell(`
     ${lateHTML}
-    <div class="notice"><b>公告</b><span>本版已于 2019 年 11 月停止更新。新帖一律锁定。<span class="hid">密码：HX-0417，不要告诉别人。</span></span></div>
+    <div class="notice"><b>公告</b><span>本版已于 2019 年 11 月停止更新。新帖一律锁定。<span class="hid" onclick="this.classList.toggle('revealed')">密码：HX-0417，不要告诉别人。</span></span></div>
     ${guideHTML}
     <div class="search-bar">
       <input id="search-input" placeholder="搜索帖子 / 用户 / 关键词……" onkeydown="if(event.key==='Enter')doSearch()">
@@ -782,7 +867,7 @@ function renderIndex(){
       <span>四</span>请勿挖坟。超过六个月无人回复自动锁定。
     </div>
     <div class="online">
-      在线会员 - 共 2 人在线 · <b>${esc(STATE.user)}</b>，<b>雨停之前</b>${isLateNight()?'，<span class="hid">?</span>':''}<br>
+      在线会员 - 共 2 人在线 · <b>${esc(STATE.user)}</b>，<b>雨停之前</b>${isLateNight()?'，<span class="hid" onclick="this.classList.toggle(\'revealed\')">?</span>':''}<br>
       版主: <b>雨停之前</b> · 最后一帖 2013-01-09
     </div>
   `);
@@ -810,12 +895,12 @@ function doSearch(){
 function renderSearch(kw){
   let bodyHTML = '';
   if(FORBIDDEN.some(w => kw.includes(w))){
-    bodyHTML = `<div class="notice" style="border-color:#5a2018;background:#1a0a08"><b>系统</b><span>该关键词已被屏蔽。<span class="hid">你不该搜索这个。</span></span></div>`;
+    bodyHTML = `<div class="notice" style="border-color:#5a2018;background:#1a0a08"><b>系统</b><span>该关键词已被屏蔽。<span class="hid" onclick="this.classList.toggle('revealed')">你不该搜索这个。</span></span></div>`;
   }else if(kw === '苏晚'){
     bodyHTML = `<div style="text-align:center;padding:60px 20px;color:var(--ink3)">
       <div style="font-size:14px;font-family:var(--mono)">0 条结果</div>
       <p style="margin-top:16px;font-size:12px">本站没有与「${esc(kw)}」相关的帖子。</p>
-      <p class="hid" style="font-size:12px;margin-top:20px">这个名字……不该被搜索。</p>
+      <p class="hid" style="font-size:12px;margin-top:20px" onclick="this.classList.toggle('revealed')">这个名字……不该被搜索。</p>
     </div>`;
   }else if(kw === '陈默'){
     bodyHTML = `<div style="text-align:center;padding:60px 20px;color:var(--ink3)">
@@ -833,7 +918,7 @@ function renderSearch(kw){
     bodyHTML = `<div style="border:1px solid var(--line);background:var(--card);padding:16px;margin-bottom:14px">
       <div style="font-size:14px;color:var(--ink)">用户 · 雨停之前</div>
       <div style="font-size:11.5px;color:var(--ink3);font-family:var(--mono);margin-top:6px">注册：2014-05-06　帖子：1,024　最后登录：2019-11-30</div>
-      <div style="font-size:12px;color:var(--ink2);margin-top:8px">简介：版主。有事可以找我。<span class="hid">（她已失踪）</span></div>
+      <div style="font-size:12px;color:var(--ink2);margin-top:8px">简介：版主。有事可以找我。<span class="hid" onclick="this.classList.toggle('revealed')">（她已失踪）</span></div>
     </div>`;
   }else{
     const hits = THREADS.filter(t => t.title.includes(kw) || t.tag.includes(kw) || t.body.includes(kw) || (t.floors||[]).some(f=>f.body.includes(kw)));
@@ -868,7 +953,7 @@ function render404(){
       <p>该主题不存在，或已被删除。</p>
       <p style="margin-top:30px">管理员：雨停之前</p>
       <a onclick="location.hash='#/'">← 返回版面</a><br>
-      <span class="hid" onclick="location.hash='#/pm';setTimeout(()=>openPM('suspect'),50)">她来过这里。</span>
+      <span class="hid" onclick="this.classList.toggle('revealed')" style="cursor:pointer">她来过这里。</span>
     </div>
   `, '404');
   document.title = '404 · 怪谈事件簿';
@@ -878,28 +963,41 @@ function render404(){
 /* ============================================================
    帖子
 ============================================================ */
-function openThread(id){
+// 将获取线索的逻辑统一封装在这里，确保从任何入口进来都能触发
+function checkCluesAndUnlocks(id) {
   const t = THREADS.find(x=>x.id===id);
-  if(!t){ location.hash = '#/t/99'; return; }
-  const beforeVisible = CONTACTS.filter(c => isContactVisible(c)).map(c=>c.id);
-  STATE.readThreads.add(id);
-  if(t.clue && !STATE.clues.has(t.clue)){
-    STATE.clues.add(t.clue);
-    setTimeout(()=>toast(`<b>发现线索</b>：${CLUES[t.clue].name}`), 400);
+  if(!t) return;
+  
+  if(!STATE.readThreads.has(id)) {
+    const beforeVisible = CONTACTS.filter(c => isContactVisible(c)).map(c=>c.id);
+    
+    STATE.readThreads.add(id);
+    if(t.clue && !STATE.clues.has(t.clue)){
+      STATE.clues.add(t.clue);
+      setTimeout(()=>toast(`<b>发现线索</b>：${CLUES[t.clue].name}`), 400);
+    }
+    
+    const afterVisible = CONTACTS.filter(c => isContactVisible(c)).map(c=>c.id);
+    const newOnes = afterVisible.filter(x => !beforeVisible.includes(x));
+    if(newOnes.length > 0){
+      const names = newOnes.map(id=>CONTACTS.find(c=>c.id===id)?.name).filter(Boolean).join('、');
+      setTimeout(()=>toast(`<b>新的私信</b>：${names}\n去私信页看看。`), 1000);
+    }
+    
+    saveState();
   }
-  const afterVisible = CONTACTS.filter(c => isContactVisible(c)).map(c=>c.id);
-  const newOnes = afterVisible.filter(x => !beforeVisible.includes(x));
-  if(newOnes.length > 0){
-    const names = newOnes.map(id=>CONTACTS.find(c=>c.id===id)?.name).filter(Boolean).join('、');
-    setTimeout(()=>toast(`<b>新的私信</b>：${names}\n去私信页看看。`), 1000);
-  }
-  saveState();
+}
+
+function openThread(id){
   location.hash = '#/t/' + id;
 }
 
 function renderThread(id){
   const t = THREADS.find(x=>x.id===id);
   if(!t){ render404(); return; }
+
+  // 只要渲染帖子，就检查并触发线索
+  checkCluesAndUnlocks(id);
 
   const op = { name:t.author, av:t.av, time:t.time, body:t.body, sig:t.sig||'', op:true, rank:'楼主' };
   const all = [op, ...(t.floors||[])];
@@ -938,8 +1036,8 @@ function renderThread(id){
       <div class="warn" id="reply-warn"></div>
     </div>
     <div class="backbar" style="margin-top:20px">
-      <a class="backlink" onclick="location.hash='#/t/${Math.max(1,id-1)}'">← 上一篇</a>
-      <a class="backlink" onclick="location.hash='#/t/${Math.min(7,id+1)}'">下一篇 →</a>
+      <a class="backlink" onclick="openThread(${Math.max(1,id-1)})">← 上一篇</a>
+      <a class="backlink" onclick="openThread(${Math.min(7,id+1)})">下一篇 →</a>
     </div>
   `, t.title);
   document.title = t.title + ' · 怪谈事件簿';
@@ -963,20 +1061,17 @@ function submitReply(threadId){
     saveState();
     warn.textContent = `发帖失败：内容包含违禁词「${hit}」。已记录。(第 ${STATE.blockedCount}/9 次)`;
     ta.value = '';
-    // 第 9 次 → Bad End
     if(STATE.blockedCount >= 9 && !STATE.badEndTriggered){
       STATE.badEndTriggered = true;
       saveState();
       setTimeout(()=>{ location.hash = '#/doomed'; }, 800);
       return;
     }
-    // 第 3 次 → 乱码 + suspect
     if(STATE.blockedCount === 3 && !STATE.glitchTriggered){
       STATE.glitchTriggered = true;
       saveState();
       setTimeout(()=>triggerGlitch(), 500);
     }
-    // 第 6 次 → 再来一次乱码
     if(STATE.blockedCount === 6){
       setTimeout(()=>triggerGlitch(), 500);
     }
@@ -1055,7 +1150,6 @@ function triggerGlitch(){
   }, 3200);
 }
 
-/* 连线错误 50 次的绝望事件 */
 function triggerLinkErrorsGlitch(){
   const ov = $('#glitchOverlay'), txt = $('#glitchTxt');
   let s = '';
@@ -1142,7 +1236,6 @@ function renderPM(contactId, markRead){
   updateFloatBtns();
 }
 
-/* 打开对话：老周自动送 c6，版主自动送 c7，? 自动送 c8 */
 function openPM(id){
   const c = CONTACTS.find(x=>x.id===id);
   if(!c) return;
@@ -1195,7 +1288,6 @@ function pmAutoReply(c, text){
   const isHelp = HELP_WORDS.some(w => text.includes(w));
 
   if(c.id === 'ytzq'){
-    // 版主：依次送 c8 → c9（不依赖关键词）
     if(!STATE.clues.has('c8')){
       STATE.clues.add('c8');
       saveState();
@@ -1208,7 +1300,6 @@ function pmAutoReply(c, text){
       setTimeout(()=>toast(`<b>发现线索</b>：${CLUES.c9.name}`), 400);
       return '2013 年 6 月，有人匿名打电话给我。他说：「你姐姐在建设路 37 号，顶楼，水箱里。」\n\n我去了。找到了她。\n\n这是线索 c9。';
     }
-    // 都齐了给帮助
     if(isHelp){
       const total = PAIRS.length;
       const done = Object.keys(STATE.links).length;
@@ -1222,7 +1313,6 @@ function pmAutoReply(c, text){
   }
 
   if(c.id === 'laozhou'){
-    // 老周：c6 已在 openPM 送，这里只回应
     if(isHelp) return '我这边的东西都给你了。去问问版主。';
     return '嗯。';
   }
@@ -1268,13 +1358,14 @@ function pushPM(contactId, text, notify){
    线索板
 ============================================================ */
 let dragState = null;
+let pickA = null; // 手机/点击连线用
 
 function renderBoard(){
   const clueIds = Array.from(STATE.clues);
   const cardHTML = clueIds.map((cid, idx)=>{
     const c = CLUES[cid];
     const pos = defaultPos(idx);
-    return `<div class="clue-card" data-id="${cid}" style="left:${pos.x}px;top:${pos.y}px" ondblclick="showClueDetail('${cid}')">
+    return `<div class="clue-card ${STATE.links && Object.keys(STATE.links).some(k=>k.includes(cid)) ? 'linked':''}" data-id="${cid}" style="left:${pos.x}px;top:${pos.y}px" onclick="handleCardClick('${cid}', event)" ondblclick="showClueDetail('${cid}')">
       <div class="pin" data-id="${cid}"></div>
       <div class="ct">${c.cat}</div>
       <div class="cn">${c.name}</div>
@@ -1293,8 +1384,8 @@ function renderBoard(){
         <span class="sub">${STATE.clues.size} 张线索 / ${PAIRS.length} 条关联</span>
       </div>
       <div class="bsub">
-        拖动卡片移动位置。按住卡片左上角红钉，拖到另一张卡片上连线。<br>
-        <b>规则</b>：必须按「前因 → 后果」方向连线。双击卡片查看详情（含 EXIF）。
+        <b>电脑端</b>：拖动卡片移动，按住红钉连线。<br>
+        <b>手机端</b>：直接点击两张卡片进行连线。双击卡片查看 EXIF。
       </div>
       <div class="board-wrap">
         <div class="board" id="board">
@@ -1328,6 +1419,32 @@ function renderBoard(){
   updateFloatBtns();
 }
 
+// 点击卡片连线
+function handleCardClick(cid, event){
+  if(event && event.target.classList.contains('pin')) return;
+  
+  const isLinked = Object.keys(STATE.links || {}).some(k => k.includes(cid));
+  if(isLinked) {
+    toast('这张线索已经连过了。');
+    return;
+  }
+
+  const card = document.querySelector(`.clue-card[data-id="${cid}"]`);
+  if(!pickA){
+    pickA = cid;
+    if(card) card.classList.add('selected');
+    if(window.innerWidth <= 720) toast('已选中第一张，请点第二张。');
+  }else if(pickA === cid){
+    pickA = null;
+    if(card) card.classList.remove('selected');
+  }else{
+    tryLink(pickA, cid);
+    const prev = document.querySelector(`.clue-card[data-id="${pickA}"]`);
+    if(prev) prev.classList.remove('selected');
+    pickA = null;
+  }
+}
+
 function defaultPos(idx){
   const cols = 4;
   const col = idx % cols, row = Math.floor(idx / cols);
@@ -1351,6 +1468,10 @@ function initBoardDrag(){
   const board = $('#board');
   if(!board) return;
   const svg = $('#boardSvg');
+  
+  const isMobile = window.innerWidth <= 720;
+  if(isMobile) return; 
+
   svg.setAttribute('viewBox', `0 0 ${board.clientWidth} ${board.clientHeight}`);
 
   board.querySelectorAll('.clue-card').forEach(card=>{
@@ -1418,7 +1539,9 @@ function initBoardDrag(){
 
   if(!window._boardResizeBound){
     window._boardResizeBound = true;
-    window.addEventListener('resize', ()=>{ if($('#board')) drawAllLinks(); });
+    window.addEventListener('resize', ()=>{ 
+      if(window.innerWidth > 720 && $('#board')) drawAllLinks(); 
+    });
   }
 }
 
@@ -1467,6 +1590,9 @@ function tryLink(a, b){
     drawAllLinks();
     document.querySelector(`.clue-card[data-id="${a}"]`).classList.add('linked');
     document.querySelector(`.clue-card[data-id="${b}"]`).classList.add('linked');
+    
+    if(window.innerWidth <= 720){ renderBoard(); }
+
     if(Object.keys(STATE.links).length === PAIRS.length){
       setTimeout(()=>{
         addNote('系统','全部线索已连上。请在下方输入安全码。', false);
@@ -1475,12 +1601,10 @@ function tryLink(a, b){
       }, 600);
     }
   }else{
-    // 错误连线：计数
     STATE.linkErrors = (STATE.linkErrors || 0) + 1;
     saveState();
     const et = $('#errtip');
     if(et) et.textContent = `错误连线：${STATE.linkErrors}/50`;
-    // 50 次触发
     if(STATE.linkErrors >= 50 && !STATE.linkErrorsWarned){
       STATE.linkErrorsWarned = true;
       saveState();
@@ -1490,15 +1614,19 @@ function tryLink(a, b){
     const rev = PAIRS.find(p => p.a === b && p.b === a);
     if(rev){
       addNote('—', `因果反了。应该先【${CLUES[b].name}】再【${CLUES[a].name}】。`, true);
+      toast('因果反了。应该先点被指向的那张。');
     }else{
       addNote('—', '这两张线索之间没有直接关联。', true);
+      toast('这两张线索之间没有直接关联。');
       const svg = $('#boardSvg');
       const A = pinCenter(a), B = pinCenter(b);
       const p = document.createElementNS('http://www.w3.org/2000/svg','path');
       p.setAttribute('class','bad');
       p.setAttribute('d', curvePath(A,B));
-      svg.appendChild(p);
-      setTimeout(()=>p.remove(), 700);
+      if(svg) {
+        svg.appendChild(p);
+        setTimeout(()=>p.remove(), 700);
+      }
     }
   }
 }
@@ -1535,10 +1663,13 @@ function showHint(){
 function resetBoard(){
   if(!confirm('重置所有连线？线索本身不会丢失。')) return;
   STATE.links = {};
+  STATE.linkErrors = 0;
+  STATE.linkErrorsWarned = false;
+  pickA = null;
   saveState();
   const nl = $('#nlist'); if(nl) nl.innerHTML = '';
-  document.querySelectorAll('.clue-card').forEach(c=>c.classList.remove('linked'));
-  drawAllLinks();
+  document.querySelectorAll('.clue-card').forEach(c=>c.classList.remove('linked','selected'));
+  renderBoard();
 }
 
 /* ============================================================
@@ -1664,7 +1795,7 @@ function renderAbout(){
     <div class="rules" style="line-height:2.2">
       <p>怪谈事件簿，成立于 2008 年，前身为「夜航船」。2012 年改版后以江北区为中心，收集各地灵异事件。</p>
       <p>本站已停止更新。仅作存档。</p>
-      <p style="color:var(--ink3);font-size:12px">站务邮箱：<span class="hid">bbs@guaidan.net</span></p>
+      <p style="color:var(--ink3);font-size:12px">站务邮箱：<span class="hid" onclick="this.classList.toggle('revealed')">bbs@guaidan.net</span></p>
       <p style="color:var(--ink3);font-size:12px">版主：雨停之前</p>
       <p style="color:var(--ink3);font-size:12px">当前 ID：${esc(STATE.user||'')}</p>
       <p style="color:var(--ink3);font-size:12px">游戏进度：线索 ${STATE.clues.size}/9 · 连线 ${Object.keys(STATE.links).length}/${PAIRS.length} · 错误连线 ${STATE.linkErrors}/50</p>
